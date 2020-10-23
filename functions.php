@@ -42,3 +42,13 @@ if ( class_exists( 'Jetpack' ) ) {
 foreach ( $understrap_includes as $file ) {
 	require_once $understrap_inc_dir . $file;
 }
+
+/**
+* Enqueue scripts and styles.
+*/
+function wpdocs_scripts_method() {
+	// Enqueue styles
+	wp_enqueue_style( 'Font_pair', 'https://fonts.googleapis.com/css2?family=Hind&family=Ubuntu&display=swap' );
+}
+
+add_action( 'wp_enqueue_scripts', 'wpdocs_scripts_method' );
