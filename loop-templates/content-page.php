@@ -13,7 +13,13 @@ defined( 'ABSPATH' ) || exit;
 
 	<header class="entry-header">
 
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<!-- Display page_title if field contains text -->
+		<?php if ( get_field('page_title') ): ?>
+			<h1 class="entry-title text-center"><?php the_field('page_title'); ?></h1>
+			<?php the_title( '<h2>', '</h2>' ); ?>
+		<?php else: ?>
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php endif; ?>
 
 	</header><!-- .entry-header -->
 
